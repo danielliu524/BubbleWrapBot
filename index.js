@@ -12,7 +12,11 @@ const getApp = (guildId) => {
 
 client.on("ready", async () => {
     console.log("Bubble Wrap Bot Online");
-
+    client.user.setActivity("/bubble",
+        {
+            type: "LISTENING",
+        }
+    );
     const commands = await getApp().commands.get();
     console.log(commands);
     await getApp().commands.post({
@@ -24,7 +28,6 @@ client.on("ready", async () => {
 
     client.ws.on("INTERACTION_CREATE", async (interaction) => {
         const command = interaction.data.name.toLowerCase();
-
         if(command === "bubble") {
             client.api.interactions(interaction.id, interaction.token).callback.post({
                 data: {
@@ -38,7 +41,7 @@ client.on("ready", async () => {
 ||)||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||(||
 ||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||
 ||)||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||(||
-||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||`,
+||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||||()||`
                     }
                 }
             })
