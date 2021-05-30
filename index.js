@@ -1,3 +1,4 @@
+//Bubble wrap
 const DiscordJS = require("discord.js");
 require("dotenv").config()
 
